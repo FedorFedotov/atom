@@ -8,6 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Helper {
 
     private String dictionary = "dictionary.txt";
+
     public String getWord() throws IOException {
 
         Path path = Paths.get(dictionary);

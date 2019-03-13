@@ -7,7 +7,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 public class BullsCowsTest {
     @Test
-    public void BullsAndCows() {
+    public void bullsAndCows() {
         Main.wordChars = new StringBuilder("aasty");
         Main.typedWordChars = new StringBuilder("aatsy");
 
@@ -16,7 +16,7 @@ public class BullsCowsTest {
     }
 
     @Test
-    public void BullsCows1() {
+    public void bullsCows1() {
         Main.wordChars = new StringBuilder("aasty");
         Main.typedWordChars = new StringBuilder("puio");
 
@@ -25,7 +25,7 @@ public class BullsCowsTest {
     }
 
     @Test
-    public void BullsCows2() {
+    public void bullsCows2() {
         Main.wordChars = new StringBuilder("aasty");
         Main.typedWordChars = new StringBuilder("aasty");
 
