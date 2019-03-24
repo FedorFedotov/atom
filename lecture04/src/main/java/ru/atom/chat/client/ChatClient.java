@@ -16,6 +16,14 @@ public class ChatClient {
     private static final String HOST = "localhost";
     private static final String PORT = ":8080";
 
+    public static Response getCurrentDate() throws IOException {
+        Request request = new Request.Builder()
+            .get()
+            .url(PROTOCOL + HOST + PORT + "/chat/currentdate")
+            .build();
+        return client.newCall(request).execute();
+    }
+
     //POST host:port/chat/login?name=my_name
     public static Response login(String name) throws IOException {
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
@@ -40,11 +48,40 @@ public class ChatClient {
     //POST host:port/chat/say?name=my_name
     //Body: "msg='my_message'"
     public static Response say(String name, String msg) throws IOException {
-        throw new UnsupportedOperationException();
+        MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+        Request request = new Request.Builder()
+                .post(RequestBody.create(mediaType, "msg=" + msg))
+                .url(PROTOCOL + HOST + PORT + "/chat/say?name=" + name)
+                .build();
+        return client.newCall(request).execute();
     }
 
     //GET host:port/chat/online
     public static Response viewOnline() throws IOException {
-        throw new UnsupportedOperationException();
+                Request request = new Request.Builder()
+            .get()
+            .url(PROTOCOL + HOST + PORT + "/chat/online")
+            .addHeader("host", HOST + PORT)
+            .build();
+        return client.newCall(request).execute();
+    }
+
+    //POST host:port/chat/logout
+    public static Response logout(String name) throws IOException {
+        MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+        Request request = new Request.Builder()
+            .post(RequestBody.create(mediaType, "name=" + name))
+            .url(PROTOCOL + HOST + PORT + "/chat/logout")
+            .build();
+        return client.newCall(request).execute();
+    }
+
+    //DELETE host:port/chat/deleteChat
+    public static Response deleteChatHistory() throws IOException {
+        Request request = new Request.Builder()
+            .delete()
+            .url(PROTOCOL + HOST + PORT + "/chat/deleteChat")
+            .build();
+        return client.newCall(request).execute();
     }
 }
