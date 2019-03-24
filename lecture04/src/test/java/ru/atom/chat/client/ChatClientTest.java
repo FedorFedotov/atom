@@ -41,8 +41,6 @@ public class ChatClientTest {
         Response response1 = ChatClient.login(MY_NAME_IN_CHAT);
         Response response = ChatClient.viewOnline();
         System.out.println("[" + response + "]");
-        System.out.println(response.body().string());
-        Assert.assertEquals(200, response.code());
         String responseBody = response.body().string();
         System.out.println(responseBody);
 
