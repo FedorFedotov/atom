@@ -58,7 +58,7 @@ public class ChatClient {
 
     //GET host:port/chat/online
     public static Response viewOnline() throws IOException {
-                Request request = new Request.Builder()
+        Request request = new Request.Builder()
             .get()
             .url(PROTOCOL + HOST + PORT + "/chat/online")
             .addHeader("host", HOST + PORT)
